@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(cors());
 
-app.get('/insertNewUser',async (req,res)=>{
+app.post('/insertNewUser',async (req,res)=>{
     // console.log(req.body);
     try {
       var psw = await bcrypt.hash(req.body.password,4);
@@ -45,7 +45,7 @@ app.get('/insertNewUser',async (req,res)=>{
     }
 });
 
-app.get('/signin',async (req,res)=>{
+app.post('/signin',async (req,res)=>{
 
   try {
     const {email,password} = req.body;
